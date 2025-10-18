@@ -7,7 +7,7 @@ const PORT = 3001
 const app = express()
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost:27017/users')
+mongoose.connect('mongodb://mongo:27017/users')
 .then(() => console.log("Connected to MongoDB"))
 .catch(err => console.error("Connection to MongoDB failed: ", err))
 
