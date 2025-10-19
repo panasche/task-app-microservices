@@ -8,14 +8,10 @@ const app = express()
 app.use(express.json())
 
 mongoose.connect('mongodb://mongo:27017/users')
-.then(() => console.log("Connected to MongoDB"))
-.catch(err => console.error("Connection to MongoDB failed: ", err))
+	.then(() => console.log("Connected to MongoDB"))
+	.catch(err => console.error("Connection to MongoDB failed: ", err))
 
 app.use('/users', userRoutes)
-
-app.get('/', (req, res) => {
-	res.send('Hello from express')
-})
 
 app.listen(PORT, () => {
 	console.log(`User service listening on PORT ${PORT}`)
