@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import taskRoutes from './routes/task.routes.js'
+import {connectRabbitMqWithRetry} from './queue/connect.queue.js'
 
 const PORT = 3002
 
@@ -15,4 +16,5 @@ app.use('/tasks', taskRoutes)
 
 app.listen(PORT, () => {
 	console.log(`Task service running on PORT ${PORT}`)
+	connectRabbitMqWithRetry()
 })
